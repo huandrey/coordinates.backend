@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.schoolRoutes = void 0;
+const express_1 = require("express");
+const CreateSchoolController_1 = require("../../../../modules/schools/useCases/CreateSchool/CreateSchoolController");
+const EditSchoolController_1 = require("../../../../modules/schools/useCases/EditSchool/EditSchoolController");
+const GetSchoolController_1 = require("../../../../modules/schools/useCases/GetSchool/GetSchoolController");
+const ListSchoolController_1 = require("../../../../modules/schools/useCases/ListSchools/ListSchoolController");
+exports.schoolRoutes = (0, express_1.Router)();
+const createSchoolController = new CreateSchoolController_1.CreateSchoolController();
+const editSchoolController = new EditSchoolController_1.EditSchoolController();
+const listSchoolController = new ListSchoolController_1.ListSchoolController();
+const getSchoolController = new GetSchoolController_1.GetSchoolController();
+exports.schoolRoutes.post('/', createSchoolController.handle);
+exports.schoolRoutes.put('/:id', editSchoolController.handle);
+exports.schoolRoutes.get('/', listSchoolController.handle);
+exports.schoolRoutes.get('/:id', getSchoolController.handle);
