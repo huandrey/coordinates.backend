@@ -30,7 +30,9 @@ AppDataSource.initialize().then(() => {
     });
   }
   );
-
-  app.listen(port, () => console.log("Server is running in PORT 3333!"));
+  
+  app.listen(process.env.PORT || 3333, function(){
+    console.log("Express server listening on port %d in %s mode");
+  });
 });
 
