@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node shared/infra/http/app.js",
+    "start": "node dist/shared/infra/http/app.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/shared/infra/http/app.js\"",
     "typeorm": "ts-node-dev node_modules/.bin/typeorm",
     "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
